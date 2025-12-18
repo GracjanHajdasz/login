@@ -1,12 +1,48 @@
 import "./Login.css";
 
-export function Signup({ setHasAccount }) {
+export function Signup({
+  setHasAccount,
+  setLogin,
+  setPassword,
+  login,
+  password,
+  setUsers,
+  users,
+}) {
+  function saveLogin(event) {
+    setLogin(event.target.value);
+  }
+
+  function savePassword(event) {
+    setPassword(event.target.value);
+  }
+
+  function addUser() {
+    const newUser = [
+      ...users,
+      { password: password, login: login, userId: crypto.randomUUID() },
+    ];
+    setUsers(newUser);
+    setLogin("");
+    setPassword("");
+  }
+
   return (
     <div className="container">
       <h1>Sign Up</h1>
-      <input type="text" placeholder="login" />
-      <input type="password" placeholder="password" />
-      <button>Create account</button>
+      <input
+        value={login}
+        onChange={saveLogin}
+        type="text"
+        placeholder="login"
+      />
+      <input
+        value={password}
+        onChange={savePassword}
+        type="password"
+        placeholder="password"
+      />
+      <button onClick={addUser}>Create account</button>
       <p>
         Already have an{" "}
         <span onClick={() => setHasAccount(true)}>account?</span>

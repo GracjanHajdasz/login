@@ -1,6 +1,6 @@
 import "./Login.css";
 
-export function Signup() {
+export function Signup({ setHasAccount }) {
   return (
     <div className="container">
       <h1>Sign Up</h1>
@@ -8,7 +8,8 @@ export function Signup() {
       <input type="password" placeholder="password" />
       <button>Create account</button>
       <p>
-        Already have an <span>account?</span>
+        Already have an{" "}
+        <span onClick={() => setHasAccount(true)}>account?</span>
       </p>
     </div>
   );

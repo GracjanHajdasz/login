@@ -1,6 +1,6 @@
 import "./Login.css";
 
-export function Login() {
+export function Login({ setHasAccount }) {
   return (
     <div className="container">
       <h1>Login</h1>
@@ -8,7 +8,8 @@ export function Login() {
       <input type="password" placeholder="password" />
       <button>login</button>
       <p>
-        Don't have account <span>yet?</span>
+        Don't have account{" "}
+        <span onClick={() => setHasAccount(false)}>yet?</span>
       </p>
     </div>
   );

@@ -66,4 +66,5 @@ p{
 span {
     color: rgba(60, 70, 123, 1);
     text-decoration: underline;
+    cursor: pointer;
 }

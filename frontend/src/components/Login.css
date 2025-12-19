@@ -68,3 +68,11 @@ span {
     text-decoration: underline;
     cursor: pointer;
 }
+
+.taken-login {
+    color: red;
+}
+
+.not-taken-login {
+    display: none;
+}

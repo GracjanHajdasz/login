@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./Login.css";
 
 export function Signup({
@@ -9,12 +10,24 @@ export function Signup({
   setUsers,
   users,
 }) {
+  const [isLoginAvailable, setIsLoginAvailable] = useState(true);
+
   function saveLogin(event) {
     setLogin(event.target.value);
   }
 
   function savePassword(event) {
     setPassword(event.target.value);
+  }
+
+  function checkIfUserExists() {
+    const user = users.find((u) => login === u.login);
+
+    if (user) {
+      setIsLoginAvailable(false);
+    } else {
+      addUser();
+    }
   }
 
   function addUser() {
@@ -43,7 +56,12 @@ export function Signup({
         type="password"
         placeholder="password"
       />
-      <button onClick={addUser}>Create account</button>
+      <button onClick={checkIfUserExists}>Create account</button>
+      {isLoginAvailable ? (
+        <p className="not-taken-login">this login is taken</p>
+      ) : (
+        <p className="taken-login">this login is taken</p>
+      )}
       <p>
         Already have an{" "}
         <span onClick={() => setHasAccount(true)}>account?</span>

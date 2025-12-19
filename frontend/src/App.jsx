@@ -16,7 +16,14 @@ function App() {
   return (
     <div className="app-container">
       {hasAccount ? (
-        <Login setHasAccount={setHasAccount} />
+        <Login
+          setHasAccount={setHasAccount}
+          users={users}
+          setPassword={setPassword}
+          setLogin={setLogin}
+          login={login}
+          password={password}
+        />
       ) : (
         <Signup
           setHasAccount={setHasAccount}

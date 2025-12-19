@@ -25,6 +25,7 @@ export function Signup({
     setUsers(newUser);
     setLogin("");
     setPassword("");
+    setHasAccount(true);
   }
 
   return (
